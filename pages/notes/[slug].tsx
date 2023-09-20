@@ -92,6 +92,15 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
     {inlinks.map( (item, index) =>
         (<MyLink key={index} href={`/notes/${JSON.parse(item.dest)}`}>{JSON.parse(item.title)}</MyLink>))}
                               </>)}
+
+
+
+        <script data-isso="//comments.example.tld/"
+        src="//comments.example.tld/js/embed.min.js"></script>
+
+        <section id="isso-thread">
+        <noscript>Javascript needs to be activated to view comments.</noscript>
+        </section>
     </Layout>
 }
 
