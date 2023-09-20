@@ -29,6 +29,7 @@ import { useState } from "react";
 
 import MyLink from "../../components/MyLink"
 import CodeViewer from "../../components/CodeViewer";
+import Script from "next/script";
 
 function Note({note, contents, outlinks, inlinks, html, tags }) {
            // .use(stringify);
@@ -95,8 +96,10 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
 
 
 
-        <script data-isso="//comments.atticusmkuhn.com/"
-        src="//comments.atticusmkuhn.com/js/embed.min.js"></script>
+        <Script
+    data-isso="//comments.atticusmkuhn.com/"
+    strategy="lazyOnload"
+        src="//comments.atticusmkuhn.com/js/embed.min.js" />
 
         <section id="isso-thread">
         <noscript>Javascript needs to be activated to view comments.</noscript>
