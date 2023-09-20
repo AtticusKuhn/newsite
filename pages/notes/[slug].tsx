@@ -9,7 +9,8 @@ import MdViewer from "../../components/MdViewer";
 import { blog, findBlogBySlug, getBlogs } from "../../lib/blog";
 import { randomItemsFromArray } from "../../lib/utils";
 // import {exec} from "child_process"
-import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
+// @ts-ignore
+import { jsx, jsxs} from 'react/jsx-runtime'
 
 import fs from "fs"
 
@@ -46,6 +47,7 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
                     if(props.href.startsWith("id:")){
                         return <MyLink {...props} href={"/notes/" + props.href.substring(3)} />;
                     }else{
+                        // @ts-ignore
                         return <MyLink {...props} />;
                     }
                 },
@@ -65,7 +67,7 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
                     console.log(props)
                     const language = props.className.match(/language-.*/gm)[0].substring(9);
                     const matchedLanguage = language === "agda2" ? "agda" : language
-                    return <CodeViewer {...props} language={matchedLanguage} />;
+                    return <CodeViewer {...props} language={matchedLanguage} inline={true} />;
                 },
             },
         });
