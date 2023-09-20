@@ -1,0 +1,15 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* @import './base.css'; */
+@import 'tailwindcss/utilities';
+@layer components {
+    .fl {
+      @apply flex flex-col  sm:flex-row
+    }
+    .pop {
+      @apply hover:-translate-y-1 duration-75 hover:shadow-2xl
+    }
+  }
