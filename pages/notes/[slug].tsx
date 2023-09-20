@@ -99,7 +99,12 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
         <Script
     data-isso="//comments.atticusmkuhn.com/"
     strategy="lazyOnload"
-        src="//comments.atticusmkuhn.com/js/embed.min.js" />
+        src="//comments.atticusmkuhn.com/js/embed.min.js"
+        onReady={()=>{
+            //@ts-ignore
+            window.Isso.init();
+        }}
+        />
 
         <section id="isso-thread">
         <noscript>Javascript needs to be activated to view comments.</noscript>
