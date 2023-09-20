@@ -9,7 +9,7 @@ type ButtonProps = ({
 
 
 const Button: React.FC<ButtonProps> = (props) => {
-    const style = (text) => `bg-button w-fit p-3 rounded m-2 text-center text-primary-300 duration-75 ${text} disabled:hover:bg-parimary-200 disabled:cursor-not-allowed`;
+    const style = (text: string) : string => `bg-button w-fit p-3 rounded m-2 text-center text-primary-300 duration-75 ${text} disabled:hover:bg-parimary-200 disabled:cursor-not-allowed`;
     if ("link" in props) {
         return <Link href={props.link} className={style(props.className + " pop")}>
                 {props.children}
