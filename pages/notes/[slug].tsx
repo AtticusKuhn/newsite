@@ -103,6 +103,8 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
         onReady={()=>{
             //@ts-ignore
             window.Isso.init();
+            //@ts-ignore
+            window.Isso.fetchComments();
         }}
         />
 
