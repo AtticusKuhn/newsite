@@ -95,8 +95,8 @@ function Note({note, contents, outlinks, inlinks, html, tags }) {
 
 
 
-        <script data-isso="//comments.example.tld/"
-        src="//comments.example.tld/js/embed.min.js"></script>
+        <script data-isso="//comments.atticusmkuhn.com/"
+        src="//comments.atticusmkuhn.com/js/embed.min.js"></script>
 
         <section id="isso-thread">
         <noscript>Javascript needs to be activated to view comments.</noscript>
