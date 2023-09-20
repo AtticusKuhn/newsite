@@ -9,7 +9,7 @@ export const getDB = async () => {
     const db = await open({
       filename: "/home/atticusk/.config/emacs/.local/cache/org-roam.db", // Specify the database file path
       driver: sqlite3.Database, // Specify the database driver (sqlite3 in this case)
-    // });
+    });
   // }
     return db;
 }
