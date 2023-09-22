@@ -58,7 +58,7 @@ export default async function handler(
       title: post.title,
       id: `${site_url}/notes/${id}`,
       link: `${site_url}/notes/${id}`,
-        description: html.value,
+      description: html.value.toString(),
       date,
     });
   });
