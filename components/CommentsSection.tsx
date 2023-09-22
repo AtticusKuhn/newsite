@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import Heading from "./Heading";
+import { useRouter } from "next/router";
 
 
 const CommentsSection = ()=>{
@@ -12,7 +13,8 @@ const CommentsSection = ()=>{
             isso.fetchComments();
         }
     }
-    useEffect( () => {refresh()} , [])
+    const router = useRouter();
+    useEffect( () => {refresh()} , [router.asPath])
    return <>
         <Heading size="lg">Leave your Feedback in the Comments Section</Heading>
         <Script
