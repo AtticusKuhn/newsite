@@ -1,5 +1,4 @@
 // import Link from 'next/link'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 import Button from '../components/Button'
@@ -7,7 +6,7 @@ import Heading from '../components/Heading'
 import Layout from '../components/Layout'
 import MyLink from '../components/MyLink'
 
-function IndexPage({ recent }: InferGetStaticPropsType<typeof getStaticProps>) {
+function IndexPage() {
   return <Layout>
     <NextSeo
       title="home"
