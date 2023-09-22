@@ -4,11 +4,6 @@ import React, { useState } from "react"
 import Heading from "../../components/Heading"
 import Input, { useInput } from "../../components/Input"
 import Layout from "../../components/Layout"
-import PreviewCard from "../../components/PreviewCard"
-import { blog, blogPreivew, getBlogs } from "../../lib/blog"
-import { compareByDate, deleteKey, randomItemsFromArray } from "../../lib/utils"
-import sqlite3 from "sqlite3";
-import { open, Database } from "sqlite";
 import MyLink from "../../components/MyLink"
 import { getDB } from "../../lib/db"
 
@@ -21,8 +16,13 @@ function Notes({items}) {
                 description="My notes are my knowledge"
             />
             <Heading>My Notes</Heading>
-            <p>These are my notes</p>
-    <div className="grid grid-cols-3">
+            <p className="mx-3xl">
+    These are my notes. I write down all my ideas and knowledege into my notes.
+    I am making my notes public because I want to share what I know, so that
+  others may learn. If you want to learn more about my notes, see <MyLink href="/notes/7af6f3dc-6cc3-4b6a-88b5-278d6e7d1163">
+    How I Take Notes </MyLink>
+  </p>
+    <div className="grid grid-cols-3 my-lg">
     {items.map( (item) => (<MyLink href={`/notes/${JSON.parse(item.id)}`}>{JSON.parse(item.title)}</MyLink>))}
   </div>
         </Layout>
@@ -31,12 +31,8 @@ function Notes({items}) {
 
 export const getServerSideProps = async () => {
   const db = await getDB();
-  // Perform a database query to retrieve all items from the "items" table
-  // const tags = await db.get("SELECT * FROM tags");
-  // console.log(tags)
-  const items = await db.all("SELECT id , notes.title FROM notes INNER JOIN tags ON notes.ID = tags.node_id INNER JOIN files ON files.file = notes.path WHERE tags.tag = \'\"public\"\' ORDER BY files.mtime DESC LIMIT 20");
+  const items = await db.all("SELECT id , notes.title FROM notes INNER JOIN tags ON notes.ID = tags.node_id INNER JOIN files ON files.file = notes.path WHERE tags.tag = \'\"public\"\' ORDER BY files.mtime DESC");
 
-  console.log(items[0].properties);
 
     return {
         props: {

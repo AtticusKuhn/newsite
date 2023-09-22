@@ -4,11 +4,6 @@ import React, { useState } from "react"
 import Heading from "../../components/Heading"
 import Input, { useInput } from "../../components/Input"
 import Layout from "../../components/Layout"
-import PreviewCard from "../../components/PreviewCard"
-import { blog, blogPreivew, getBlogs } from "../../lib/blog"
-import { compareByDate, deleteKey, randomItemsFromArray } from "../../lib/utils"
-import sqlite3 from "sqlite3";
-import { open, Database } from "sqlite";
 import MyLink from "../../components/MyLink"
 import { getDB } from "../../lib/db"
 
@@ -30,13 +25,10 @@ function Blogs({items}) {
 }
 
 export const getServerSideProps = async () => {
-  // const tags = await db.get("SELECT * FROM tags");
-  // console.log(tags)
 
     const db = await getDB();
   const items = await db.all("SELECT id , notes.title FROM notes INNER JOIN tags ON notes.ID = tags.node_id INNER JOIN files ON files.file = notes.path WHERE tags.tag = \'\"blog\"\' ORDER BY files.mtime DESC LIMIT 20");
 
-  console.log(items[0].properties);
 
     return {
         props: {

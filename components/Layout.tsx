@@ -20,11 +20,8 @@ const Footer: React.FC<{}> = () => {
   return <footer>
     <hr />
     <span>
-    <MyLink href="/rss.xml">RSS feed</MyLink> |
-    <MyLink href="/atom.xml">atom feed</MyLink> |
-    <MyLink href="/rss.json">JSON feed</MyLink> |
+    <MyLink href="/api/rss">RSS feed</MyLink> |
     MIT License <MyLink href="/">Atticus Kuhn</MyLink> {new Date().getFullYear()}</span>
-
   </footer>
 }
 const Layout = ({ children }: Props) => {
